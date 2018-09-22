@@ -1,0 +1,5 @@
+CLASS ObjectCircleBarrierAntiGravity EXTENDS ObjectCircleBarrierGravity {
+	CONSTRUCTOR {
+		super()
+	}
+}

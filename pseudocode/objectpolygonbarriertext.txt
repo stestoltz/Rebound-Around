@@ -1,0 +1,22 @@
+CLASS ObjectPolygon EXTENDS Object {
+	DECLARE vars
+	
+	CONSTRUCTOR {
+		super()
+		INIT vars
+		REMOVE texture
+		SET text
+	}
+	
+	draw {
+		DRAW path
+		if (border) {
+			DRAW border
+		}
+		
+		if (fullscreen) {
+			DRAW in fullscreen
+		}
+	}
+	
+}

@@ -1,0 +1,90 @@
+//the intent is passes from Menu to GameActivity when the user 
+//selects a level or hits play. GameActivity creates an instance of 
+//GameGUI to run the timer and draw to the canvas. GameActivity handles
+//all GUI changes that do not involve custom objects.
+
+ACTIVITY GameActivity {
+	DECLARE vars
+	
+	onCreate {
+		INIT vars
+		SET landscape, fullscreen
+		INIT GameGUI object
+		BUILD buttons, layout
+	}
+	
+	onPause {
+		WRITE current level number
+	}
+	
+	onStop {
+		WRITE current level number
+	}
+	
+	Listener onMenuClick {
+		//returns to the menu
+		WRITE current level number
+		HIDE button layout
+		START Menu intent
+	}
+	
+	Listener onRestartClick {
+		//starts a new level with the level number, overwritting the
+		//current level, if there is one
+		
+		HIDE button layout
+		restart current level
+	}
+	
+	Listener onPauseClick {
+		if (currently paused) {
+			UNPAUSE
+			SET button text
+		} else {
+			PAUSE
+			SET button text
+		}
+	}
+	
+	levelCompleted {
+		//called from GameGUI
+		//handles overlay after level complete
+		HIDE button layout
+		BUILD level complete layout
+		SHOW level complete layout
+		
+		Listener googleButton {
+			SHOW leaderboard
+		}
+		
+		Listener facebookButton {
+			SHOW facebook UI
+		}
+		
+		Listener twitterButton {
+			SHOW twitter UI
+		}
+		
+		START ambient ball movement
+		
+	}
+	
+	Button getButton {
+		BUILD button
+		
+		RETURN button
+	}
+	
+	displayHint {
+		//called from GameGUI
+		PAUSE
+		GET hint text
+		BUILD hint UI
+		SHOW hint UI
+		
+		Listener OK {
+			UNPAUSE
+		}
+	}
+
+}

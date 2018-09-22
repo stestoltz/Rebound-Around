@@ -1,0 +1,24 @@
+//this is the base class from which all of our drawable objects inherit
+
+CLASS Object {
+	DECLARE vars
+	
+	CONSTRUCTOR{
+		INIT vars
+	}
+	
+	ABSTRACT draw {}
+	
+	disable {
+		enabled = false
+	}
+	
+	boolean getEnabled {
+		RETURN enabled
+	}
+	
+	removeBorder {
+		border = false
+	}
+	
+}

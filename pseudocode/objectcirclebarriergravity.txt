@@ -1,0 +1,37 @@
+CLASS ObjectCircleBarrierGravity EXTENDS ObjectCircleBarrier {
+	DECLARE vars
+	
+	CONSTRUCTOR {
+		INIT vars
+		GET textures
+		SET textures
+	}
+	
+	draw {
+		INCREMENT counter
+		
+		CHECK texture
+	
+		DRAW circle (X Location, Y Location, Radius, Color)
+		DRAW texture
+		if (border) {
+			DRAW border
+		}
+	}
+	
+	event {
+		if (this is an antigravity barrier) {
+			CALCULATE new moves away
+			SET moves
+		} else {
+			CALCULATE new moves towards
+			if (ball is on this) {
+				OFFSET
+				SET ball moves to 0
+			} else {
+				SET ball moves
+			}
+		}
+	}
+	
+}

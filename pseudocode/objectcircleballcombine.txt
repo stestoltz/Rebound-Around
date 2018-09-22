@@ -1,0 +1,18 @@
+CLASS ObjectCircleBallCombine EXTENDS ObjectCircleBall {
+	CONSTRUCTOR {
+		super()
+		SET color ORANGE
+	}
+	
+	combine {
+		CALCULATE distance
+		
+		if (balls in each other) {
+			DISABLE old balls
+			CALCUALTE new diameter
+			ADD new ball
+		} else {
+			MOVE closer
+		}
+	}
+}

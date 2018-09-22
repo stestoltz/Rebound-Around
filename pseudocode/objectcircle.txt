@@ -1,0 +1,27 @@
+//this is the class from which all circular objects inherit
+
+CLASS ObjectCircle EXTENDS Object {
+	DECLARE vars
+	
+	CONSTRUCTOR {
+		super()
+	}
+	
+	getRadius {
+		RETURN radius
+	}
+	
+	getMass {
+		RETURN mass
+	}
+	
+	getXLoc {
+		RETURN xLoc
+	}
+	
+	getYLoc {
+		RETURN yLoc
+	}
+	
+	
+}

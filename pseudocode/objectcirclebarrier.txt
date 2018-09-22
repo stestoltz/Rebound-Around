@@ -1,0 +1,17 @@
+CLASS ObjectCircleBarrier EXTENDS ObjectCircle {
+	DECLARE vars
+	
+	CONSTRUCTOR {
+		INIT vars
+		GET texture
+		SET texture
+	}
+	
+	draw {
+		DRAW circle (X Location, Y Location, Radius, Color)
+		if (border) {
+			DRAW border
+		}
+	}
+	
+}

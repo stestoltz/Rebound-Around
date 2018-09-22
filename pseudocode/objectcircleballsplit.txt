@@ -1,0 +1,18 @@
+CLASS ObjectCircleBallSplit EXTENDS ObjectCircleBall {
+	DECLARE vars
+	
+	CONSTRUCTOR {
+		super()
+		INIT vars
+	}
+	
+	event {
+		if (big enough to split) {
+			DISABLE this
+			CALCULATE new balls diameter
+			CALCULATE new balls positions
+			TRANSFER speed
+			ADD three new balls
+		}
+	}
+}

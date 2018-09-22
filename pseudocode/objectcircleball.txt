@@ -1,0 +1,106 @@
+//This the main class for moving balls
+//It handles launching, moving, friction, and collisions
+
+CLASS ObjectCircleBall EXTENDS ObjectCircle {
+	DECLARE vars
+	
+	CONSTRUCTOR {
+		super()
+		SET radius
+		SET location
+		SET color RED
+		INIT vars
+		CALCULATE mass
+		CALCULATE friction
+	}
+
+	launch {
+		CALCULATE new move
+		SET new move
+	}
+	
+	applyFriction {
+		if (this is moving) {
+			CALCULATE reduced speed
+			SET new move
+		}
+	}
+	
+	move {
+		CALCULATE new location
+	}
+	
+	boolean getMoving {
+		RETURN speed > small number
+	}
+	
+	draw {
+		DRAW circle (X Location, Y Location, Radius, Color)
+		if (border) {
+			DRAW border
+		}
+	}
+	
+	isColliding {
+		if (colliding with walls) {
+			COLLIDE with walls
+		}
+		
+		for (Objects) {
+			if (Object is enabled) {
+				if (Object is pocket) {
+					COLLIDE with pocket
+				} else {
+					if (Object is a circle) {
+						if (isColliding with Object) {}
+							COLLIDE with circle
+						}
+					} else if (Object is a polygon) {
+						if (isColliding with Object) {
+							COLLIDE with polygon
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	randomizeMovement {
+		GET two randomNums from -2 to 2
+		SET xMove to first
+		SET yMove to second
+	}
+	
+	List<PointerFinger> getPointerFingers {
+		for (PointerFingers) {
+			for (PointerFingerBalls) {
+				if (this is ball) {
+					List.add(this)
+				}
+			}
+		}
+		
+		RETURN List
+	}
+	
+	reset() {
+		enabled = true
+	}
+	
+	getDensity {
+		RETURN density
+	}
+	
+	getXMove {
+		RETURN xMove
+	}
+	
+	getYMove {
+		RETURN yMove
+	}
+	
+	getPaint {
+		RETURN color
+	}
+
+}

@@ -1,0 +1,28 @@
+CLASS ObjectCirclePocket EXTENDS ObjectCircle {
+	DECLARE vars
+	
+	CONSTRUCTOR {
+		INIT vars
+		GET textures
+		SET textures
+	}
+	
+	draw {
+		INCREMENT counter
+	
+		CHECK texture
+	
+		DRAW circle (X Location, Y Location, Radius, Color)
+		DRAW texture
+		if (border) {
+			DRAW border
+		}
+	}
+	
+	fillPocket {
+		DISABLE this
+		START shrinking
+		
+	}
+	
+}

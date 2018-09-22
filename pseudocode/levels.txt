@@ -1,0 +1,33 @@
+//this class is completely static
+//it stores everything level specific
+
+STATIC CLASS Levels {
+	
+	List<List<Object>> getLevel {
+		SWITCH (levelNumber) {
+			GET levelNumber List
+		}
+		
+		RETURN levelNumber List
+	}
+	
+	getNumLevels {
+		RETURN number of levels
+	}
+	
+	String getLeaderboardID {
+		SWITCH (levelNumber) {
+			GET leaderboardID
+		}
+		
+		RETURN leaderboardID
+	}
+	
+	String getHint {
+		SWITCH (levelNumber) {
+			GET hintText
+		}
+		
+		RETURN hintText
+	}
+}

@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Rebound Around</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="facebook_app_id">184439788602841</string>
+    <string name="share">Share</string>
+
+    <string name="twitter_key">ESvqZ6hb7CjP4CCSnCPwbjtgZ</string>
+    <string name="twitter_secret">tGox37WG75MNOQmJQPEZrDWwjLAfAE0Embbi23gcRbJ1j5v33W</string>
+    <string name="twitter_api_key">130293de21b144aaf49e1737df87c4659de9a681</string>
+
+    <!-- App ID from Google Play -->
+    <string name="app_id">833113150952</string>
+
+    <!-- Leaderboard IDs from Google Play -->
+    <string name="lead_level_1">CgkI6Kuny58YEAIQAQ</string>
+    <string name="lead_level_2">CgkI6Kuny58YEAIQBg</string>
+    <string name="lead_level_3">CgkI6Kuny58YEAIQBw</string>
+    <string name="lead_level_4">CgkI6Kuny58YEAIQCA</string>
+    <string name="lead_level_5">CgkI6Kuny58YEAIQCQ</string>
+    <string name="lead_level_6">CgkI6Kuny58YEAIQCg</string>
+    <string name="lead_level_7">CgkI6Kuny58YEAIQCw</string>
+    <string name="lead_level_8">CgkI6Kuny58YEAIQDA</string>
+    <string name="lead_level_9">CgkI6Kuny58YEAIQDQ</string>
+    <string name="lead_level_10">CgkI6Kuny58YEAIQDg</string>
+
+    <!-- Achievement IDs from Google Play-->
+
+    <string name="ach_quick_time">CgkI6Kuny58YEAIQIA</string>
+    <string name="ach_youre_a_slow_poke">CgkI6Kuny58YEAIQIQ</string>
+    <string name="ach_fallin">CgkI6Kuny58YEAIQIg</string>
+    <string name="ach_gotta_sink_em_all">CgkI6Kuny58YEAIQIw</string>
+    <string name="ach_combomination">CgkI6Kuny58YEAIQJA</string>
+    <string name="ach_split_forever">CgkI6Kuny58YEAIQJQ</string>
+    <string name="ach_barrier_buster">CgkI6Kuny58YEAIQJg</string>
+
+    <!-- String resources for Google Play sign in errors -->
+    <string name="signin_error">Error with signing in, please try again</string>
+    <string name="signin_failure">Unable to sign in</string>
+</resources>

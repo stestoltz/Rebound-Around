@@ -1,0 +1,105 @@
+//this is the main menu
+//it references a XML layout
+//it creates a GameActivity when the user leaves it
+
+ACTIVITY Menu {
+	DECLARE vars
+	
+	onCreate {
+		INIT vars
+		INIT Google Play
+		INIT menu visual
+		READ options
+	}
+	
+	onStart {
+		if (user connected to Google Play before) {
+			CONNECT TO Google Play
+		}
+	}
+	
+	onStop {
+		DISCONNECT FROM Google Play
+	}
+	
+	onPlayClick {
+		READ levelNumber
+		START levelNumber
+	}
+	
+	onLevelClick {
+		BUILD UI
+		BUILD List
+		
+		Listener onListClick {
+			START levelNumber
+		}
+	}
+	
+	onOptionClick {
+		BUILD UI
+		BUILD CheckBoxes
+		
+		BUILD Listeners
+	}
+	
+	onSignInClick{
+		CONNECT TO Google
+	}
+	
+	onSignOutClick {
+		DISCONNECT FROM Google
+		
+		SET button "Sign In"
+		
+		WRITE options
+	}
+	
+	onAchievementClick {
+		DISPLAY achievements
+	}
+	
+	onConnectedFailed {
+		RESOLVE problems
+	}
+	
+	onConnected {
+		SET connected
+		SET button "Sign Out"
+	}
+	
+	CheckBox getCheckBox {
+		if (CheckBox is checked) {
+			option:current = true;
+			SET text
+		} else {
+			option:current = false;
+			SET text
+		}
+	}
+	
+	onCheckBoxClick {
+		GET CheckBox
+		if (CheckBox is checked) {
+			option:current = true;
+			SET text
+		} else {
+			option:current = false;
+			SET text
+		}
+	}
+	
+	onBackClick {
+		INIT menu
+	}
+	
+	Button getButton {
+		BUILD Button
+		RETURN Button
+	}
+	
+	scale {
+		SCALE input to screen size
+	}
+	
+}

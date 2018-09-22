@@ -1,0 +1,223 @@
+//an instance of this is created whenever GameActivity is created
+//this ticks as often as it can and draws all objects to the view
+//it handles or calls all movement methods
+
+CLASS GameGUI EXTENDS SurfaceView {
+	DECLARE vars
+	
+	CONSTRUCTOR {
+		INIT vars
+		START current level number
+	}
+	
+	DRAW {
+		//called every tick
+		//completely redraws the canvas
+		
+		DRAW background
+		
+		FOR Objects {
+			if (Object is ball) {
+				ball.isColliding
+				MOVE ball
+			}
+		}
+		
+		ADD Objects
+		
+		FOR Objects {
+			if (Object is enabled) {
+				DRAW Object
+				
+				if (Object is ball) {
+					FOR Objects {
+						if (Object is gravity barrier) {
+							gravity.event(ball)
+						}
+					}
+					
+					ball.applyFriction()
+				}
+				
+				if (Object is pocket) {
+					INCREMENT pocket counters
+				}
+				
+			} else {
+				REMOVE Object
+			}
+			
+			if (level not completed) {
+				FORMAT time
+				DRAW time
+				if (ready to display hint) {
+					DISPLAY hint
+				}
+				
+				if (floor completed && more floors) {
+					RESET balls that went into pockets
+					SET lstObjects to next floor
+				} else if (floor completed && no more floors) {
+					//level completed
+					
+					if (Google Play is signed in) {
+						SET leaderboard button enabled
+						INCREMENT achievements
+					}
+					
+					CALL GameActivity.levelCompleted
+				}
+			}
+			
+			if (level not completed) {
+				FOR (PointerFingers) {
+					FOR (PointerFingerBalls) {
+						SET distance
+						if (options:projections) {
+							BUILD projections
+							DRAW projections
+						}
+					}
+				}
+				
+				if (options:collisionpausing) {
+					FOR (Collisions) {
+						DRAW collisions
+					}
+					
+					pausetime based on of number collisions
+					PAUSE = true
+				}
+				
+				if (options:movementdirection OR pausing) {
+					FOR (Objects) {
+						if (Object is ball) {
+							if (ball is moving) {
+								BUILD prediction
+								DRAW prediction
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	onTouchEvent(ActionEvent e) {
+		if (level not completed) {
+			if (e is action down) {
+			
+				for (Objects) {
+					if (Object is ball AND Object is not ball dud) {
+						GET distance from e location to ball center
+						
+						if (distance > ball radius) {
+							CREATE NEW Finger
+							INIT Finger
+						}
+					
+						
+					} else if (Object is text barrier) {
+						SET barrier fullscreen
+						PAUSE
+					}
+				}
+				
+				if (NOT on ball) {
+					SHOW buttons
+				}
+			}
+
+			
+			
+			if (e is action move) {
+			
+				FOR (PointerFingers) {
+					GET e that matches finger
+					SET location of finger to e location
+				}
+			
+			}
+			
+			if (e is action up) {
+			
+				FOR (PointerFingers) {
+					if (e = current finger) {
+						FOR (PointerFingerBalls) {
+							if (finger is outside of ball) {
+								LAUNCH ball
+							}
+							
+							if (ball is split && finger is inside ball) {
+								if (ball is enabled) {
+									if (SPLIT ball) {
+										ADD balls to lists
+										FOR (old ball's fingers) {
+											ADD fingers to new balls
+										}
+									}
+								}
+							}
+						}
+						
+						REMOVE finger
+					}
+				}
+				
+				if (on text barrier) {
+					UNSET fullscreen
+					UNPAUSE
+				}
+				
+			}
+		}
+	}
+	
+	restartLevel {
+		CLEAR lists
+		SET lists
+		if (paused) {
+			UNPAUSE
+		}
+	}
+	
+	backgroundMovement {
+		for (Objects) {
+			if (Object is ball) {
+				ball.randomizeMovement
+			}
+		}
+	}
+	
+	surfaceCreated {
+		RUN thread
+	}
+	
+	surfaceDestroyed {
+		STOP thread
+		CLEAR objects
+	}
+}
+
+CLASS GameThread IMPLEMENTS Runnable {
+	DECLARE vars
+
+	CONSTRUCTOR {
+		INIT vars
+	}
+	
+	run {
+		INCREMENT time
+		CLEAR canvas
+		SET canvas
+		DRAW
+		LOOP
+	}
+}
+
+CLASS PointerFinger {
+	DECLARE vars
+	CONSTRUCTOR {
+		INIT vars
+	}
+}

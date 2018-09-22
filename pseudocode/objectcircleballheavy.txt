@@ -1,0 +1,6 @@
+CLASS ObjectCircleBallHeavy EXTENDS ObjectCircleBall {
+	CONSTRUCTOR {
+		super()
+		SET color PURPLE
+	}
+}

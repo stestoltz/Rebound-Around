@@ -1,0 +1,11 @@
+CLASS ObjectPolygonBarrier EXTENDS ObjectPolygon {
+	DECLARE vars
+	
+	CONSTRUCTOR {
+		super()
+		INIT vars
+		GET texture
+		SET texture
+	}
+	
+}

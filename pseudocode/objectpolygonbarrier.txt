@@ -1,0 +1,19 @@
+CLASS ObjectPolygonBarrier EXTENDS ObjectPolygon {
+	DECLARE vars
+	
+	CONSTRUCTOR {
+		super()
+		INIT vars
+		CREATE path
+		GET texture
+		SET texture
+	}
+	
+	draw {
+		DRAW path
+		if (border) {
+			DRAW border
+		}
+	}
+	
+}

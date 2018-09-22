@@ -1,0 +1,7 @@
+CLASS ObjectCircleBarrierBreakable EXTENDS ObjectCircleBarrier {
+	CONSTRUCTOR {
+		super()
+		GET texture
+		SET texture
+	}
+}

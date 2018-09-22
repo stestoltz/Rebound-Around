@@ -1,0 +1,35 @@
+//instances of this class are created whenever a collision happens
+//if collision pausing is on, they are added to a list in GameGUI
+//GameGUI draws each collision, then pauses the game
+
+CLASS Collision {
+	DECLARE vars
+	
+	CONSTRUCTOR {
+		//circle-circle
+		INIT vars
+	}
+	
+	CONSTRUCTOR {
+		//circle-polygon
+		INIT vars
+	}
+	
+	draw {
+		//called when appropriate from GameGUI
+		if varBall is moving {
+			get varBall initial movement
+			draw initial movement
+		}
+		
+		if varBall colliding with another ball {
+			get varBall final movement
+			draw projected movement
+			draw arrow head
+		} else if varBall colliding with a polygon {
+			get varBall final movement
+			draw projected movement
+			draw arrow head
+		}
+	}
+}

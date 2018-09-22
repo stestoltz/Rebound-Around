@@ -1,0 +1,6 @@
+CLASS ObjectCircleBallDud EXTENDS ObjectCircleBall {
+	CONSTRUCTOR {
+		super()
+		SET color GREEN
+	}
+}

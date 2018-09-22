@@ -1,0 +1,6 @@
+CLASS ObjectCircleBallLight EXTENDS ObjectCircleBall {
+	CONSTRUCTOR {
+		super()
+		SET color YELLOW
+	}
+}
